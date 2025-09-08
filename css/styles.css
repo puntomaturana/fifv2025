@@ -62,7 +62,7 @@
 
 /* Preservar las transformaciones de layout */
 [data-aos].preserve-transform {
-    transform: var(--layout-transform) !important;
+    transform: var(--layout-transform);
 }
 
 html {
