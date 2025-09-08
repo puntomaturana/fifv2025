@@ -42,6 +42,9 @@ function initHeroAnimations() {
             opacity: 0,
             y: 20
         }, "-=0.3");
+
+    // Agregar logs para depuración
+    console.log("Hero animations initialized");
 }
 
 // Animaciones de la sección de contenido
@@ -72,6 +75,9 @@ function initContentAnimations() {
         stagger: 0.2,
         ease: "power3.out"
     });
+
+    // Agregar logs para depuración
+    console.log("Content animations initialized");
 }
 
 // Inicializar todas las animaciones cuando el DOM esté listo

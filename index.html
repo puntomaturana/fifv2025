@@ -13,59 +13,24 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
-        .bighero .animate {
-            opacity: 0;
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        [data-aos] {
+            pointer-events: none;
         }
-        
-        .bighero .animate.show {
-            opacity: 1;
+        [data-aos].aos-animate {
+            pointer-events: auto;
         }
-
-        .bighero .pre-ini,
-        .bighero .pre-fin {
-            transform: translateY(-20px);
-        }
-
-        .bighero .fi-izq {
-            transform: translate(-20px, -50%);
-        }
-
-        .bighero .fi-der {
-            transform: translate(20px, -50%);
-        }
-
-        .bighero .titulo-central {
-            transform: translateY(30px);
-        }
-
-        /* .bighero .gpez {
-            transform: scale(0.95);
-        }
-
-        .bighero .animate.show {
-            transform: none;
-        } */
     </style>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
-            // Animación del hero
-            setTimeout(function() {
-                document.querySelectorAll('.bighero .animate').forEach(function(el, index) {
-                    setTimeout(function() {
-                        el.classList.add('show');
-                    }, index * 100);
-                });
-            }, 100);
-
-            // Inicializar AOS solo para el contenido
+            // Inicializar AOS para todas las animaciones
             AOS.init({
-                duration: 1000,
+                duration: 800,
                 offset: 0,
                 once: true,
                 mirror: false,
-                delay: 100,
                 anchorPlacement: 'top-bottom'
             });
         });
@@ -74,18 +39,16 @@
 
 <body>
     <section class="bighero">
-        <h2 class="pre-ini animate">¿</h2>
-        <h2 class="pre-fin animate">?</h2>
-        <span class="fi-izq animate">FIFV</span>
-        <span class="fi-der animate">FIFV</span>
-        <span class="fecha-ini animate">25.10.25</span>
-        <span class="fecha-fin animate">01.11.25</span>
-        <h1 class="titulo-central animate">cuál es la<br>naturaleza<br>de las cosas</h1>
-    <img src="./images/pez.png" alt="pez" class="gpez animate">
-        <div class="texto-inferior animate">XVI Festival Internacional Fotografía Valparaíso</div>
-    </section>
-
-    <section class="content">
+        <h2 class="pre-ini" data-aos="fade-up" data-aos-delay="0">¿</h2>
+        <h2 class="pre-fin" data-aos="fade-up" data-aos-delay="100">?</h2>
+        <span class="fi-izq" data-aos="fade-right" data-aos-delay="200">FIFV</span>
+        <span class="fi-der" data-aos="fade-left" data-aos-delay="200">FIFV</span>
+        <span class="fecha-ini" data-aos="fade-up" data-aos-delay="300">25.10.25</span>
+        <span class="fecha-fin" data-aos="fade-up" data-aos-delay="300">01.11.25</span>
+        <h1 class="titulo-central" data-aos="fade-up" data-aos-delay="400">cuál es la<br>naturaleza<br>de las cosas</h1>
+        <img src="./images/pez.png" alt="pez" class="gpez" data-aos="fade-up" data-aos-delay="500">
+        <div class="texto-inferior" data-aos="fade-up" data-aos-delay="600">XVI Festival Internacional Fotografía Valparaíso</div>
+    </section>    <section class="content">
         <div class="left-title" data-aos="fade-right" data-aos-duration="1000">
             <div class="header-meta">
                 <p class="small-title">FIFV 2025</p>
