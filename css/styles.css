@@ -53,10 +53,16 @@
 [data-aos] {
     opacity: 0;
     transition: opacity 0.3s;
+    will-change: transform, opacity;
 }
 
 [data-aos].aos-animate {
     opacity: 1;
+}
+
+/* Preservar las transformaciones de layout */
+[data-aos].preserve-transform {
+    transform: var(--layout-transform);
 }
 
 html {
@@ -116,7 +122,8 @@ body {
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    --layout-transform: translate(-50%, -50%);
+    transform: var(--layout-transform);
     width: 40%;
     max-width: 504px;
     z-index: 55;
@@ -200,7 +207,8 @@ body {
     position: absolute;
     bottom: 1.875rem;
     left: 50%;
-    transform: translateX(-50%);
+    --layout-transform: translateX(-50%);
+    transform: var(--layout-transform);
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
