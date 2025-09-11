@@ -42,6 +42,9 @@
 :root {
     --container-max-width: 75rem;
     --container-padding: 1.25rem;
+    --navbar-height: 4rem;
+    --navbar-background: rgba(196, 255, 0, 0.95);
+    --navbar-text-color: #000;
 }
 
 *,
@@ -335,6 +338,115 @@ body {
     .footer-column {
         width: 100%;
         max-width: 400px;
+    }
+}
+
+/*------------------------------------*\
+  #NAVBAR
+\*------------------------------------*/
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--navbar-background);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+    max-width: var(--container-max-width);
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-family: 'Varietta', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--navbar-text-color);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--navbar-text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-link:hover {
+    opacity: 0.7;
+}
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navbar-text-color);
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+        background: var(--navbar-background);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-menu.active {
+        transform: translateX(0);
+    }
+
+    .navbar-toggle.active span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active span:last-child {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 }
 
