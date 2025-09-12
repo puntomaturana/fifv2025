@@ -434,6 +434,10 @@ body.menu-open {
         display: block;
     }
 
+    .navbar-link {
+        font-size: 1rem;
+    }
+
     .navbar-menu {
         position: fixed;
         top: var(--navbar-height);
