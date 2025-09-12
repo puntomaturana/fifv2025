@@ -1,4 +1,4 @@
-/document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Inicializar AOS
     AOS.init({
         duration: 800,
@@ -22,7 +22,10 @@
             navbarToggle.classList.remove('active');
             navbarMenu.classList.remove('active');
         });
-    });alizar AOS cuando el DOM esté listo
+    });
+});
+
+// Inicializar AOS cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init({
         duration: 800,
