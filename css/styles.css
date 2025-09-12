@@ -97,7 +97,7 @@ html {
 
 @media (max-width: 576px) {
     html {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -435,7 +435,7 @@ body.menu-open {
     }
 
     .navbar-link {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     .navbar-menu {
