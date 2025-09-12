@@ -40,11 +40,20 @@
   #BASE
 \*------------------------------------*/
 :root {
+    /* Layout */
     --container-max-width: 75rem;
     --container-padding: 1.25rem;
     --navbar-height: 4rem;
-    --navbar-background: rgba(196, 255, 0, 0.95);
-    --navbar-text-color: #000;
+
+    /* Colors */
+    --color-primary: #c4ff00;
+    --color-primary-transparent: rgba(196, 255, 0, 0.95);
+    --color-background: #bfc1b5;
+    --color-text: #000;
+    
+    /* Navbar */
+    --navbar-background: var(--color-primary-transparent);
+    --navbar-text-color: var(--color-text);
 }
 
 *,
@@ -68,13 +77,12 @@
     transform: var(--layout-transform);
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 html {
     font-size: 16px;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 @media (max-width: 1200px) {
@@ -104,9 +112,8 @@ html {
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #bfc1b5;
-    color: #000;
-    width: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text);
     position: relative;
 }
 
@@ -123,8 +130,8 @@ body.menu-open {
 .bighero {
     box-sizing: border-box;
     position: relative;
-    height: 100vh;
-    background-color: #c4ff00;
+    min-height: calc(100vh - 64px);
+    background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -237,7 +244,7 @@ body.menu-open {
   #CONTENT
 \*------------------------------------*/
 .content {
-    background-color: #bfc1b5;
+    background-color: var(--color-background);
     padding: 2.5rem var(--container-padding);
     max-width: var(--container-max-width);
     margin: 0 auto;
@@ -317,7 +324,7 @@ body.menu-open {
 \*------------------------------------*/
 .footer {
     padding: 3.75rem 1.875rem;
-    background-color: #bfc1b5;
+    background-color: var(--color-background);
 }
 
 .footer-columns {
@@ -363,7 +370,7 @@ body.menu-open {
     width: 100%;
     height: var(--navbar-height);
     background: var(--navbar-background);
-    border-bottom: 1px solid var(--navbar-text-color) ;
+    border-bottom: 1px solid var(--navbar-text-color);
     z-index: 1000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -417,51 +424,61 @@ body.menu-open {
     border: none;
     padding: 0.5rem;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
 }
 
 .navbar-toggle span {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--navbar-text-color);
+    background: var(--color-text);
     margin: 6px 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     transform-origin: center;
 }
 
 @media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .navbar {
+        position: sticky;
+        max-width: 100%;
+    }
+
     .navbar-toggle {
         display: block;
     }
 
-    .navbar-link {
-        font-size: 2rem;
-    }
-
     .navbar-menu {
         position: fixed;
-        top: var(--navbar-height);
-        left: 0;
-        right: 0;
-        width: 100vw;
-        height: calc(100vh - var(--navbar-height));
-        background: var(--navbar-background);
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-primary);
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        transform: translateX(100vw);
-        transition: transform 0.3s ease;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -webkit-overflow-scrolling: touch; /* Para mejor comportamiento en iOS */
-        overflow-y: auto; /* Permitir scroll si el contenido es muy alto */
+        padding-top: var(--navbar-height);
+        transition: left 0.3s ease-in-out;
+        z-index: 999;
     }
 
-    .navbar-menu.active {
-        transform: translateX(0);
-        overflow-x: hidden;
+    body.menu-open .navbar-menu {
+        left: 0;
+    }
+    
+    body.menu-open .navbar-toggle {
+        background: transparent;
+    }
+
+    .navbar-link {
+        font-size: 2rem;
+        padding: 1rem;
     }
 
     .navbar-toggle.active span:first-child {
@@ -589,6 +606,7 @@ body.menu-open {
     .bighero {
         height: 70vh;
         padding: 1.5rem var(--container-padding);
+        align-items: center;
     }
 
     .bighero .titulo-central {
