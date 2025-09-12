@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             menuButton.classList.toggle('active');
             menuList.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
             // Toggle aria-expanded para accesibilidad
             const isExpanded = menuButton.classList.contains('active');
             menuButton.setAttribute('aria-expanded', isExpanded);

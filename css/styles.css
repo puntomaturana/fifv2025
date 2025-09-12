@@ -101,8 +101,12 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #bfc1b5;
     color: #000;
-    overflow-x: hidden;
     width: 100%;
+    position: relative;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 /*------------------------------------*\
@@ -345,12 +349,13 @@ body {
   #NAVBAR
 \*------------------------------------*/
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     height: var(--navbar-height);
     background: var(--navbar-background);
+    border-bottom: 1px solid var(--navbar-text-color) ;
     z-index: 1000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -371,6 +376,7 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
     text-decoration: none;
+    text-transform: uppercase;
     color: var(--navbar-text-color);
 }
 
@@ -409,8 +415,9 @@ body {
     width: 24px;
     height: 2px;
     background: var(--navbar-text-color);
-    margin: 5px 0;
-    transition: transform 0.3s ease;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
 }
 
 @media (max-width: 768px) {
@@ -438,15 +445,16 @@ body {
     }
 
     .navbar-toggle.active span:first-child {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(6px, 6px);
     }
 
     .navbar-toggle.active span:nth-child(2) {
         opacity: 0;
+        transform: translateX(-10px);
     }
 
     .navbar-toggle.active span:last-child {
-        transform: rotate(-45deg) translate(7px, -7px);
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 }
 
