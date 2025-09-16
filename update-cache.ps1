@@ -14,8 +14,8 @@ if (Test-Path $indexFile) {
     # Reemplazar todos los timestamps existentes con el nuevo
     $updatedContent = $content -replace '\?v=\d{14}', "?v=$timestamp"
     
-    # Escribir el contenido actualizado de vuelta al archivo
-    $updatedContent | Out-File -FilePath $indexFile -Encoding UTF8
+    # Escribir el contenido actualizado de vuelta al archivo con codificación UTF-8 sin BOM
+    [System.IO.File]::WriteAllText($indexFile, $updatedContent, [System.Text.UTF8Encoding]::new($false))
     
     Write-Host "✅ Cache busting actualizado exitosamente!" -ForegroundColor Green
     Write-Host "📅 Timestamp aplicado: $timestamp" -ForegroundColor Cyan

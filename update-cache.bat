@@ -16,7 +16,7 @@ set timestamp=%datestr%%timestr%
 echo Actualizando cache busting con timestamp: %timestamp%
 
 REM Actualizar el archivo index.html reemplazando el timestamp anterior
-powershell -Command "(gc index.html) -replace 'v=\d{14}', 'v=%timestamp%' | Out-File -encoding UTF8 index.html"
+powershell -Command "$content = Get-Content 'index.html' -Raw -Encoding UTF8; $content = $content -replace 'v=\\d{14}', 'v=%timestamp%'; [System.IO.File]::WriteAllText('index.html', $content, [System.Text.UTF8Encoding]::new($false))"
 
 echo Cache busting actualizado exitosamente!
 echo Timestamp aplicado: %timestamp%
