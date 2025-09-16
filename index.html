@@ -23,15 +23,6 @@
     <link rel="stylesheet" href="./css/styles.css" id="main-css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon" id="favicon">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" id="shortcut-favicon">
-    <script>
-        // Cache busting dinámico - se ejecuta al cargar la página
-        (function() {
-            const timestamp = new Date().getTime();
-            document.getElementById('main-css').href += '?v=' + timestamp;
-            document.getElementById('favicon').href += '?v=' + timestamp;
-            document.getElementById('shortcut-favicon').href += '?v=' + timestamp;
-        })();
-    </script>
     <style>
         [data-aos] {
             pointer-events: none;
@@ -39,6 +30,11 @@
 
         [data-aos].aos-animate {
             pointer-events: auto;
+        }
+        
+        /* Fallback para asegurar visibilidad */
+        body {
+            opacity: 1;
         }
     </style>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -51,8 +47,14 @@
                 offset: 0,
                 once: true,
                 mirror: false,
-                anchorPlacement: 'top-bottom'
+                anchorPlacement: 'top-bottom',
+                disable: false
             });
+            
+            // Forzar refresh de AOS después de un momento
+            setTimeout(function() {
+                AOS.refresh();
+            }, 100);
         });
     </script>
 </head>
@@ -260,19 +262,8 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Cache busting dinámico para scripts JS
-        (function() {
-            const timestamp = new Date().getTime();
-            const script1 = document.createElement('script');
-            script1.src = './js/animations.js?v=' + timestamp;
-            document.body.appendChild(script1);
-            
-            const script2 = document.createElement('script');
-            script2.src = './js/menu.js?v=' + timestamp;
-            document.body.appendChild(script2);
-        })();
-    </script>
+    <script src="./js/animations.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>
