@@ -82,9 +82,9 @@ html {
     overflow-x: hidden;
 }
 
-body {
+/* body {
     overflow-x: hidden;
-}
+} */
 
 @media (max-width: 1200px) {
     html {
@@ -253,7 +253,8 @@ body.menu-open {
     flex-direction: row;
     justify-content: center;
     gap: 2.5rem;
-    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .content .left-title {
