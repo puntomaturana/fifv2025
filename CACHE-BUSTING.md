@@ -25,12 +25,7 @@ Todos los archivos estáticos incluyen un parámetro de versión:
 
 ## Scripts de Automatización
 
-### Opción 1: Script Batch (Windows)
-```bash
-update-cache.bat
-```
-
-### Opción 2: Script PowerShell (Recomendado)
+### Script PowerShell
 ```powershell
 .\update-cache.ps1
 ```
