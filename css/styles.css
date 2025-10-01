@@ -1,4 +1,29 @@
 /*------------------------------------*\
+  #COUNTDOWN
+\*------------------------------------*/
+#countdown {
+    width: 100%;
+    text-align: center;
+    font-size: 1.35rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.75em 0 0.75em 0;
+    background: var(--color-primary-transparent);
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: 0.5em;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    #countdown {
+        font-size: 1.1rem;
+        padding: 0.5em 0 0.5em 0;
+        margin-bottom: 0.25em;
+    }
+}
+/*------------------------------------*\
   #FONTS
 \*------------------------------------*/
 @font-face {
@@ -396,6 +421,18 @@ body.menu-open {
     color: var(--navbar-text-color);
 }
 
+/* Layout 50/50: logo y countdown */
+#countdown {
+    /* estilos base ya definidos arriba; aquí forzamos el ancho dentro de la navbar */
+    flex: 0 0 50%;
+    text-align: right;
+}
+
+.navbar-logo {
+    flex: 0 0 50%;
+    text-align: left;
+}
+
 .navbar-menu {
     display: flex;
     gap: 2rem;
@@ -451,6 +488,31 @@ body.menu-open {
 
     .navbar-toggle {
         display: block;
+    }
+
+    /* En móvil centramos los elementos del contenedor de la navbar */
+    .navbar-container {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    /* En móvil apilar logo y contador y centrar texto */
+    .navbar-logo,
+    #countdown {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    /* Ajustes para permitir que la navbar crezca en altura cuando se apilan los elementos */
+    .navbar {
+        height: auto;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .navbar-menu {
