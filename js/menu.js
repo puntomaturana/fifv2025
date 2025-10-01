@@ -1,3 +1,27 @@
+// Cuenta regresiva al 25 de octubre de 2025
+function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    if (!countdownEl) return;
+    // Fecha objetivo: 25 de octubre de 2025, 00:00:00
+    const targetDate = new Date('2025-10-25T00:00:00-03:00');
+    const now = new Date();
+    let diff = targetDate - now;
+    if (diff <= 0) {
+        countdownEl.textContent = '¡El festival ha comenzado!';
+        return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * (1000 * 60 * 60 * 24);
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * (1000 * 60);
+    const seconds = Math.floor(diff / 1000);
+    countdownEl.textContent = `${days} días, ${hours} horas, ${minutes} minutos`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const menuButton = document.querySelector('.navbar-toggle');

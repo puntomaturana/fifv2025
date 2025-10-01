@@ -31,7 +31,7 @@
         [data-aos].aos-animate {
             pointer-events: auto;
         }
-        
+
         /* Fallback para asegurar visibilidad */
         body {
             opacity: 1;
@@ -50,9 +50,9 @@
                 anchorPlacement: 'top-bottom',
                 disable: false
             });
-            
+
             // Forzar refresh de AOS después de un momento
-            setTimeout(function() {
+            setTimeout(function () {
                 AOS.refresh();
             }, 100);
         });
@@ -62,24 +62,15 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="/" class="navbar-logo">Convocatorias</a>
+            <a href="/" class="navbar-logo">Inicio del Festival</a>
             <button class="navbar-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navbar-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul id="navbar-menu" class="navbar-menu">
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_workshopgabrielle.pdf"
-                        class="navbar-link">Workshop</a></li>
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_brigadas.pdf"
-                        class="navbar-link">Brigadas</a></li>
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_visionado.pdf"
-                        class="navbar-link">Visionado</a></li>
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_proyecciones.pdf"
-                        class="navbar-link">Proyecciones</a></li>
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_feriaeditorial.pdf"
-                        class="navbar-link">Feria Editorial</a></li>
-                <li><a target="_blank" href="convocatorias/fifv_convocatoria_ronda.pdf" class="navbar-link">Ronda</a>
+                <li style="width:100%;text-align:center;list-style:none;">
+                    <div id="countdown" style="font-size:1.2em;font-weight:bold;padding:0.5em 0;"></div>
                 </li>
             </ul>
         </div>
