@@ -1,29 +1,4 @@
 /*------------------------------------*\
-  #COUNTDOWN
-\*------------------------------------*/
-#countdown {
-    width: 100%;
-    text-align: center;
-    font-size: 1.35rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    padding: 0.75em 0 0.75em 0;
-    background: var(--color-primary-transparent);
-    color: var(--color-text);
-    letter-spacing: 0.03em;
-    border-bottom: 1px solid var(--color-primary);
-    margin-bottom: 0.5em;
-    z-index: 1001;
-}
-
-@media (max-width: 768px) {
-    #countdown {
-        font-size: 1.1rem;
-        padding: 0.5em 0 0.5em 0;
-        margin-bottom: 0.25em;
-    }
-}
-/*------------------------------------*\
   #FONTS
 \*------------------------------------*/
 @font-face {
@@ -667,7 +642,7 @@ body.menu-open {
     }
 
     .bighero {
-        height: 70vh;
+        min-height: 70vh;
         padding: 1.5rem var(--container-padding);
         align-items: center;
     }
@@ -707,5 +682,30 @@ body.menu-open {
     .fecha-ini,
     .fecha-fin {
         font-size: 1.5rem;
+    }
+}
+/*------------------------------------*\
+  #COUNTDOWN
+\*------------------------------------*/
+#countdown {
+    width: 100%;
+    text-align: center;
+    font-size: 1.35rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.75em 0 0.75em 0;
+    background: var(--color-primary-transparent);
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: 0.5em;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    #countdown {
+        font-size: 1.1rem;
+        padding: 0.5em 0 0.5em 0;
+        margin-bottom: 0.25em;
     }
 }
