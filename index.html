@@ -63,12 +63,14 @@
     <nav class="navbar">
         <div class="navbar-container">
             <a href="/" class="navbar-logo">FIFV 2025</a>
-            <!-- <button class="navbar-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navbar-menu">
+            <button class="navbar-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navbar-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button> -->
-            <div id="countdown"></div>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="./docs/fifv_programa.pdf" target="_blank" class="navbar-link">Programación</a></li>
+            </ul>
         </div>
     </nav>
     <section class="bighero">
@@ -249,6 +251,13 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Barra flotante con cuenta regresiva -->
+    <div class="countdown-chip">
+        <span class="countdown-icon">⏱️</span>
+        <div id="countdown"></div>
+    </div>
+    
     <script src="./js/animations.js"></script>
     <script src="./js/menu.js"></script>
 </body>
