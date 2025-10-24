@@ -7,7 +7,7 @@ function updateCountdown() {
     const now = new Date();
     let diff = targetDate - now;
     if (diff <= 0) {
-        countdownEl.textContent = '¡El festival ha comenzado!';
+        countdownEl.textContent = '¡El festival ha comenzado! Revisa el programa.';
         return;
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
